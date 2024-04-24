@@ -28,14 +28,47 @@ string ShoppingCart::GetDate() const
   return currentDate;
 }
       
-      void AddItem(ItemToPurchase item);
-      void RemoveItem(string name);
+void ShoppingCart::AddItem(ItemToPurchase item)
+{
+  cartItems.push_back(item);
+}
+
+void ShoppingCart::RemoveItem(string name)
+{
+  
+}
       
-      void ModifyItem(ItemToPurchase item);
+void ShoppingCart::ModifyItem(ItemToPurchase item)
+{
+  
+}
       
-      int GetNumItemsInCart();
-      double GetCostOfCart();
+int ShoppingCart::GetNumItemsInCart()
+{
+
+}
       
-      void PrintTotal();
-      void PrintDescriptions();
+double ShoppingCart::GetCostOfCart()
+{
+
+}
+      
+void ShoppingCart::PrintTotal()
+{
+  int total;
+  cout << customerName << "'s Shopping Cart - " << currentDate << endl;
+  cout << "Number of Items: " << cartItems.size() << endl;
+  
+  for(int i = 0; i < cartItems.size(); i++)
+  {
+    total += cartItems.at(i).GetPrice();
+  }
+
+  cout << total;
+}
+      
+void ShoppingCart::PrintDescriptions()
+{
+  
+}
 
