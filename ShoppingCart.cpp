@@ -62,6 +62,7 @@ void ShoppingCart::PrintTotal()
   for(int i = 0; i < cartItems.size(); i++)
   {
     total += cartItems.at(i).GetPrice();
+    cartItems.at(i).Print();
   }
 
   cout << total;
