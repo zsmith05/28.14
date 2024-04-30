@@ -3,6 +3,7 @@
 using namespace std;
 
 #include "ShoppingCart.h"
+#include "ItemToPurchase.h" 
 
 // Zion
 void PrintMenu() {
@@ -23,8 +24,21 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
          theCart.PrintDescriptions();
       }else if(option == 'a'){
+         string name;
+         string description;
+         int price;
+         int quant;
          cout << "ADD ITEM TO CART" << endl;
-         
+         cout << "Enter the item name:" << endl;
+         cin >> name;
+         cout << "Enter the item description:" << endl;
+         cin >> description;
+         cout << "Enter the item price:" << endl;
+         cin >> price; 
+         cout << "Enter the item quantity:" << endl;
+         cin >> quant;
+         ItemToPurchase item = new ItemToPurchase(name, description, price, quant);
+         AddItem(item);
       }
    
 }
