@@ -45,12 +45,15 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cin >> name;
          RemoveItem(name);
       }else if (option == 'c'){
+         ItemToPurchase item = new ItemToPurchase();
          cout << "CHANGE ITEM QUANTITY" << endl;
          cout << "Enter item name:" << endl;
          cin >> name;
+         item.SetName(name);
          cout << "Enter the new quantity: " << endl;
          cin >> quant;
-         
+         item.SetQuantity(quant);
+         theCart.ModifyItem(item);
       }
    
 }
