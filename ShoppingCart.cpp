@@ -1,6 +1,3 @@
-
-// ShoppingCart.cpp
-
 #include "ShoppingCart.h"
 #include <iostream>
 
