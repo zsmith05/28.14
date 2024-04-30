@@ -16,7 +16,16 @@ void PrintMenu() {
 }
 
 void ExecuteMenu(char option, ShoppingCart& theCart) {
-
+      if(option == 'o'){
+         cout << "OUTPUT SHOPPING CART" << endl;
+         theCart.PrintTotal();
+      }else if(option == 'i'){
+         cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
+         theCart.PrintDescriptions();
+      }else if(option == 'a'){
+         cout << "ADD ITEM TO CART" << endl;
+         
+      }
    
 }
 
