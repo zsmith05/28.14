@@ -16,7 +16,14 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
 }
 
 int main() {
-   /* Type your code here */
-   
+   string name;
+   string date;
+   cout << "Enter customer's name:" << endl;
+   cin >> name;
+   cout << "Enter today's date:" << endl;
+   cin >> date;
+   cout << "Customer's name: " << name << endl;
+   cout << "Today's date: " << date << endl;
+   ShoppingCart cart = new ShoppingCart(name, date);
    return 0;
 }
