@@ -17,6 +17,10 @@ void PrintMenu() {
 }
 
 void ExecuteMenu(char option, ShoppingCart& theCart) {
+         string name;
+         string description;
+         int price;
+         int quant;
       if(option == 'o'){
          cout << "OUTPUT SHOPPING CART" << endl;
          theCart.PrintTotal();
@@ -24,10 +28,6 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
          theCart.PrintDescriptions();
       }else if(option == 'a'){
-         string name;
-         string description;
-         int price;
-         int quant;
          cout << "ADD ITEM TO CART" << endl;
          cout << "Enter the item name:" << endl;
          cin >> name;
@@ -39,6 +39,18 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
          cin >> quant;
          ItemToPurchase item = new ItemToPurchase(name, description, price, quant);
          AddItem(item);
+      }else if(option == 'd'){
+         cout << "REMOVE ITEM FROM CART" << endl;
+         cout << "Enter name of item to remove:" << endl;
+         cin >> name;
+         RemoveItem(name);
+      }else if (option == 'c'){
+         cout << "CHANGE ITEM QUANTITY" << endl;
+         cout << "Enter item name:" << endl;
+         cin >> name;
+         cout << "Enter the new quantity: " << endl;
+         cin >> quant;
+         
       }
    
 }
