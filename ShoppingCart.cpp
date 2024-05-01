@@ -31,9 +31,9 @@ void ShoppingCart::AddItem(ItemToPurchase item) {
 // Removes item from cartItems vector
 void ShoppingCart::RemoveItem(string name) {
     bool found = false;
-    for (auto it = cartItems.begin(); it != cartItems.end(); ++it) {
-        if (it->GetName() == name) {
-            cartItems.erase(it);
+    for (int i = 0; i < cartItems.size(); i++) {
+        if (name == cartItems[i].GetName()) {
+            cartItems.erase(cartItems.begin() + i); // Remove item from vector
             found = true;
             break;
         }
@@ -43,19 +43,20 @@ void ShoppingCart::RemoveItem(string name) {
     }
 }
 
-// Modifies an item's description, price, and/or quantity
+
 void ShoppingCart::ModifyItem(ItemToPurchase item) {
     bool found = false;
-    for (auto& cartItem : cartItems) {
-        if (cartItem.GetName() == item.GetName()) {
+    for (int i = 0; i < cartItems.size(); i++) {
+        
+        if (item.GetName() == cartItems[i].GetName()) {
             if (item.GetDescription() != "none") {
-                cartItem.SetDescription(item.GetDescription());
+                cartItems[i].SetDescription(item.GetDescription());
             }
             if (item.GetPrice() != 0) {
-                cartItem.SetPrice(item.GetPrice());
+                cartItems[i].SetPrice(item.GetPrice());
             }
             if (item.GetQuantity() != 0) {
-                cartItem.SetQuantity(item.GetQuantity());
+                cartItems[i].SetQuantity(item.GetQuantity());
             }
             found = true;
             break;
@@ -65,6 +66,7 @@ void ShoppingCart::ModifyItem(ItemToPurchase item) {
         cout << "Item not found in cart. Nothing modified." << endl;
     }
 }
+
 
 // Returns quantity of all items in cart
 int ShoppingCart::GetNumItemsInCart() {
