@@ -35,7 +35,18 @@ void ShoppingCart::AddItem(ItemToPurchase item)
 
 void ShoppingCart::RemoveItem(string name)
 {
-  
+  for(int i = 0; i < cartItems.size(); i++)
+    {
+      if(cartItems.at(i) == name)
+      {
+        for(int j = i; j < cartItems.size()-1; j++)
+          {
+          cartItems.at(j) == cartItems.at(j++);
+          }
+        cartItems.pop_back();
+
+      }
+    }
 }
       
 void ShoppingCart::ModifyItem(ItemToPurchase item)
@@ -45,12 +56,12 @@ void ShoppingCart::ModifyItem(ItemToPurchase item)
       
 int ShoppingCart::GetNumItemsInCart()
 {
-
+  return cartItems.size();
 }
       
 double ShoppingCart::GetCostOfCart()
 {
-
+  
 }
       
 void ShoppingCart::PrintTotal()
