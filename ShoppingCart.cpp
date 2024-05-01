@@ -94,9 +94,8 @@ void ShoppingCart::PrintTotal() {
     if (cartItems.empty()) {
         cout << "SHOPPING CART IS EMPTY" << endl;
     } else {
-        for (const auto& item : cartItems) {
-            cout << item.GetName() << " " << item.GetQuantity() << " @ $" << item.GetPrice() 
-                 << " = $" << (item.GetQuantity() * item.GetPrice()) << endl;
+         for (unsigned int i = 0; i < cartItems.size(); i++) {
+            totalCost += (cartItems[i].GetQuantity() * cartItems[i].GetPrice());
         }
     }
 
@@ -110,8 +109,10 @@ void ShoppingCart::PrintDescriptions() {
     if (cartItems.empty()) {
         cout << "SHOPPING CART IS EMPTY" << endl;
     } else {
-        for (const auto& item : cartItems) {
-            cout << item.GetName() << ": " << item.GetDescription() << endl;
+        for (unsigned int i = 0; i < cartItems.size(); i++) {
+
+            cout << cartItems[i].GetName() << " " << cartItems[i].GetQuantity() << " @ $" << cartItems[i].GetPrice() 
+                 << " = $" << (cartItems[i].GetQuantity() * cartItems[i].GetPrice()) << endl;
         }
     }
 }
