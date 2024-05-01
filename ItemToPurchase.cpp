@@ -1,7 +1,8 @@
 #include "ItemToPurchase.h"
+#include <iostream>
 using namespace std;
 
-ItemToPurchase::ItemToPurchase(string name, string description, int price, int quantity = 0) {
+ItemToPurchase::ItemToPurchase(string name, string description, int price, int quantity) {
         itemName = name;
         itemDescription = description;
         itemPrice = price;
@@ -34,12 +35,17 @@ int ItemToPurchase::GetQuantity() const{
   return itemQuantity;
 }
 
- void PrintItemCost() const {
-        cout << itemName << " " << itemQuantity << " @ $" << itemPrice << " = $" << (itemPrice * itemQuantity) << endl;
+ void ItemToPurchase::PrintItemCost()  {
+        cout <<  GetName() << " " << GetQuantity() << " @ $" << GetPrice() << " = $" << (GetPrice() * GetQuantity()) << endl;
 }
- void PrintItemDescription() const {
-        cout << itemName << ": " << itemDescription << endl;
+ void ItemToPurchase::PrintItemDescription()  {
+        cout << GetName() << ": " << GetDescription() << endl;
 }
+
+
+
+
+
 
 
 
